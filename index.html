@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday, Dr. Ratnakiriti Roy Sir 🎂</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="animations.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- Scroll progress bar -->
+<div id="scrollProgressBar"></div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!--  CANVAS: FLOATING PARTICLES (shared across all sections)   -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<canvas id="particleCanvas"></canvas>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!--  MUSIC BUTTON                                              -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<button class="music-btn" id="musicBtn" title="Toggle Music" aria-label="Toggle background music">
+  🔇
+  <span class="music-label">Music</span>
+</button>
+
+<!--
+  ╔═══════════════════════════════════════╗
+  ║   SECTION 1 — CINEMATIC INTRO SCREEN ║
+  ╚═══════════════════════════════════════╝
+-->
+<section id="intro-screen" class="intro-screen active">
+  <div class="intro-overlay"></div>
+  <div class="intro-stars" id="introStars"></div>
+
+  <div class="intro-content">
+    <p class="intro-line line-1" id="introLine1">Today is not just another day...</p>
+    <p class="intro-line line-2" id="introLine2">
+      Today, we celebrate someone who inspires us to<br/>
+      <em>learn, grow, and dream bigger.</em>
+    </p>
+    <h1 class="intro-name" id="introName">Dr. Ratnakiriti Roy Sir</h1>
+    <p class="intro-wish" id="introWish">Happy Birthday, Sir! 🎂</p>
+
+    <button class="intro-enter-btn" id="enterBtn" onclick="enterCelebration()">
+      Enter the Celebration
+      <span class="btn-arrow">→</span>
+    </button>
+  </div>
+
+  <!-- Decorative floating elements -->
+  <div class="floating-deco deco-1">✦</div>
+  <div class="floating-deco deco-2">✦</div>
+  <div class="floating-deco deco-3">◆</div>
+  <div class="floating-deco deco-4">✦</div>
+</section>
+
+<!--
+  ╔═══════════════════════════════════════╗
+  ║   MAIN WEBSITE (hidden until intro)  ║
+  ╚═══════════════════════════════════════╝
+-->
+<main id="mainWebsite" class="main-hidden">
+
+  <!-- ─────────────────────────────────────────────────────────
+       SECTION 2 — HERO
+       ───────────────────────────────────────────────────────── -->
+  <section id="hero" class="hero-section">
+    <div class="hero-bg-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+
+    <div class="hero-content reveal-on-enter">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        A Surprise From Your Students
+        <span class="badge-dot"></span>
+      </div>
+
+      <h1 class="hero-title">
+        Happy Birthday,<br/>
+        <span class="hero-name-gold">Dr. Ratnakiriti Roy Sir</span>
+        <span class="hero-emoji"> 🎉</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Celebrating an inspiring leader, mentor, and guide.
+      </p>
+
+      <!-- Elegant Academic Crest SVG -->
+      <div class="hero-illustration">
+        <div class="acad-crest-wrapper">
+          <svg class="acad-crest-svg" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="goldGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fff2b2" />
+                <stop offset="40%" stop-color="#f0d078" />
+                <stop offset="70%" stop-color="#c9a84c" />
+                <stop offset="100%" stop-color="#8a6d25" />
+              </linearGradient>
+              <linearGradient id="goldGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#ffffff" />
+                <stop offset="50%" stop-color="#f0d078" />
+                <stop offset="100%" stop-color="#c9a84c" />
+              </linearGradient>
+              <radialGradient id="crestAura" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#c9a84c" stop-opacity="0.35" />
+                <stop offset="50%" stop-color="#c9a84c" stop-opacity="0.1" />
+                <stop offset="100%" stop-color="#04071a" stop-opacity="0" />
+              </radialGradient>
+              <filter id="glowEffect" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+              </filter>
+            </defs>
+
+            <!-- Background Radiant Glow -->
+            <circle cx="120" cy="120" r="100" fill="url(#crestAura)" />
+            
+            <!-- Rotating Outer Starburst Ring -->
+            <g class="crest-spin-ring">
+              <circle cx="120" cy="120" r="92" stroke="url(#goldGrad1)" stroke-width="1" stroke-dasharray="4 8" opacity="0.4" />
+              <circle cx="120" cy="120" r="82" stroke="url(#goldGrad2)" stroke-width="0.75" stroke-dasharray="2 12" opacity="0.6" />
+            </g>
+
+            <!-- Laurel Wreath Left -->
+            <g class="crest-wreath" filter="url(#glowEffect)" opacity="0.85">
+              <path d="M 68,140 C 60,110 75,75 102,55" stroke="url(#goldGrad1)" stroke-width="1.8" stroke-linecap="round" fill="none" />
+              <!-- Leaves Left -->
+              <path d="M 66,132 Q 54,128 58,118 Q 66,124 66,132 Z" fill="url(#goldGrad1)" />
+              <path d="M 62,112 Q 50,105 56,96 Q 64,103 62,112 Z" fill="url(#goldGrad1)" />
+              <path d="M 66,92 Q 56,82 65,74 Q 71,82 66,92 Z" fill="url(#goldGrad1)" />
+              <path d="M 76,73 Q 70,62 81,56 Q 85,66 76,73 Z" fill="url(#goldGrad1)" />
+              <path d="M 92,59 Q 89,48 101,45 Q 102,56 92,59 Z" fill="url(#goldGrad1)" />
+            </g>
+
+            <!-- Laurel Wreath Right -->
+            <g class="crest-wreath" filter="url(#glowEffect)" opacity="0.85">
+              <path d="M 172,140 C 180,110 165,75 138,55" stroke="url(#goldGrad1)" stroke-width="1.8" stroke-linecap="round" fill="none" />
+              <!-- Leaves Right -->
+              <path d="M 174,132 Q 186,128 182,118 Q 174,124 174,132 Z" fill="url(#goldGrad1)" />
+              <path d="M 178,112 Q 190,105 184,96 Q 176,103 178,112 Z" fill="url(#goldGrad1)" />
+              <path d="M 174,92 Q 184,82 175,74 Q 169,82 174,92 Z" fill="url(#goldGrad1)" />
+              <path d="M 164,73 Q 170,62 159,56 Q 155,66 164,73 Z" fill="url(#goldGrad1)" />
+              <path d="M 148,59 Q 151,48 139,45 Q 138,56 148,59 Z" fill="url(#goldGrad1)" />
+            </g>
+
+            <!-- Mortarboard (Graduation Cap) -->
+            <g class="crest-mortarboard" filter="url(#glowEffect)">
+              <!-- Cap Top Diamond -->
+              <polygon points="120,68 168,82 120,96 72,82" fill="url(#goldGrad1)" stroke="#fff" stroke-width="0.5" />
+              <!-- Cap Skull Base -->
+              <path d="M 94,90 L 94,106 C 94,116 146,116 146,106 L 146,90 Z" fill="url(#goldGrad1)" opacity="0.9" />
+              <!-- Button on Top -->
+              <ellipse cx="120" cy="82" rx="3.5" ry="2" fill="#ffffff" />
+              <!-- Tassel String & Hanging Brush -->
+              <path d="M 120,82 Q 152,88 156,108" stroke="url(#goldGrad2)" stroke-width="1.5" stroke-linecap="round" fill="none" />
+              <polygon points="153,108 159,108 161,124 151,124" fill="url(#goldGrad2)" />
+              <circle cx="156" cy="108" r="2" fill="#fff" />
+            </g>
+
+            <!-- Open Academic Book -->
+            <g class="crest-book" filter="url(#glowEffect)">
+              <!-- Pages Left -->
+              <path d="M 120,154 C 104,146 84,147 70,152 L 70,178 C 84,173 104,172 120,180 Z" fill="url(#goldGrad1)" opacity="0.95" />
+              <path d="M 120,150 C 105,143 86,144 74,148 L 74,174 C 86,170 105,169 120,176 Z" fill="#0d1540" stroke="url(#goldGrad1)" stroke-width="1" />
+              <!-- Pages Right -->
+              <path d="M 120,154 C 136,146 156,147 170,152 L 170,178 C 156,173 136,172 120,180 Z" fill="url(#goldGrad1)" opacity="0.95" />
+              <path d="M 120,150 C 135,143 154,144 166,148 L 166,174 C 154,170 135,169 120,176 Z" fill="#0d1540" stroke="url(#goldGrad1)" stroke-width="1" />
+              <!-- Spine & Ribbon Marker -->
+              <line x1="120" y1="148" x2="120" y2="182" stroke="url(#goldGrad1)" stroke-width="2" stroke-linecap="round" />
+              <path d="M 120,180 L 123,196 L 120,192 L 117,196 Z" fill="url(#goldGrad2)" />
+              <!-- Page Lines -->
+              <line x1="82" y1="156" x2="110" y2="153" stroke="url(#goldGrad1)" stroke-width="0.8" opacity="0.7" />
+              <line x1="82" y1="162" x2="110" y2="159" stroke="url(#goldGrad1)" stroke-width="0.8" opacity="0.7" />
+              <line x1="82" y1="168" x2="105" y2="165" stroke="url(#goldGrad1)" stroke-width="0.8" opacity="0.7" />
+              <line x1="130" y1="153" x2="158" y2="156" stroke="url(#goldGrad1)" stroke-width="0.8" opacity="0.7" />
+              <line x1="130" y1="159" x2="158" y2="162" stroke="url(#goldGrad1)" stroke-width="0.8" opacity="0.7" />
+              <line x1="135" y1="165" x2="158" y2="168" stroke="url(#goldGrad1)" stroke-width="0.8" opacity="0.7" />
+            </g>
+
+            <!-- Sparkling Stars -->
+            <g class="crest-sparkles">
+              <polygon points="120,38 122,44 128,46 122,48 120,54 118,48 112,46 118,44" fill="#ffffff" filter="url(#glowEffect)" />
+              <polygon points="56,76 57,80 61,81 57,82 56,86 55,82 51,81 55,80" fill="url(#goldGrad2)" />
+              <polygon points="184,76 185,80 189,81 185,82 184,86 183,82 179,81 183,80" fill="url(#goldGrad2)" />
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <p class="hero-tagline">
+        <span>With Respect</span>
+        <span class="tagline-sep">•</span>
+        <span>Gratitude</span>
+        <span class="tagline-sep">•</span>
+        <span>Warm Wishes</span>
+      </p>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator">
+      <span>Scroll to explore</span>
+      <div class="scroll-chevron">
+        <div class="chevron"></div>
+        <div class="chevron"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────────────────────
+       SECTION 3 — BIRTHDAY CAKE
+       ───────────────────────────────────────────────────────── -->
+  <section id="cake-section" class="cake-section">
+    <div class="section-header scroll-reveal">
+      <p class="section-eyebrow">A Special Moment</p>
+      <h2 class="section-title">Sir, this celebration is for you!</h2>
+    </div>
+
+    <div class="cake-wrapper scroll-reveal">
+      <!-- Cake SVG / CSS art -->
+      <div class="cake-container" id="cakeContainer">
+
+        <!-- Candles -->
+        <div class="candles-row" id="candlesRow">
+          <div class="candle-group" style="--delay:0s">
+            <div class="candle-smoke" id="smoke0" style="display:none"></div>
+            <div class="candle-flame" id="flame0">
+              <div class="flame-inner"></div>
+              <div class="flame-glow"></div>
+            </div>
+            <div class="candle-body c-gold"></div>
+          </div>
+          <div class="candle-group" style="--delay:0.15s">
+            <div class="candle-smoke" id="smoke1" style="display:none"></div>
+            <div class="candle-flame" id="flame1">
+              <div class="flame-inner"></div>
+              <div class="flame-glow"></div>
+            </div>
+            <div class="candle-body c-blue"></div>
+          </div>
+          <div class="candle-group" style="--delay:0.05s">
+            <div class="candle-smoke" id="smoke2" style="display:none"></div>
+            <div class="candle-flame" id="flame2">
+              <div class="flame-inner"></div>
+              <div class="flame-glow"></div>
+            </div>
+            <div class="candle-body c-gold"></div>
+          </div>
+          <div class="candle-group" style="--delay:0.2s">
+            <div class="candle-smoke" id="smoke3" style="display:none"></div>
+            <div class="candle-flame" id="flame3">
+              <div class="flame-inner"></div>
+              <div class="flame-glow"></div>
+            </div>
+            <div class="candle-body c-blue"></div>
+          </div>
+          <div class="candle-group" style="--delay:0.08s">
+            <div class="candle-smoke" id="smoke4" style="display:none"></div>
+            <div class="candle-flame" id="flame4">
+              <div class="flame-inner"></div>
+              <div class="flame-glow"></div>
+            </div>
+            <div class="candle-body c-gold"></div>
+          </div>
+        </div>
+
+        <!-- Cake tiers -->
+        <div class="cake-body">
+          <div class="cake-tier tier-top">
+            <div class="tier-frosting"></div>
+            <div class="tier-drips">
+              <span class="drip" style="--l:10%"></span>
+              <span class="drip" style="--l:30%"></span>
+              <span class="drip" style="--l:55%"></span>
+              <span class="drip" style="--l:75%"></span>
+              <span class="drip" style="--l:90%"></span>
+            </div>
+            <div class="tier-decoration">
+              <span class="tier-text">Happy Birthday</span>
+            </div>
+          </div>
+          <div class="cake-tier tier-middle">
+            <div class="tier-frosting"></div>
+            <div class="tier-decoration">
+              <span class="tier-text-name">Dr. Ratnakiriti Roy Sir</span>
+            </div>
+          </div>
+          <div class="cake-tier tier-bottom">
+            <div class="tier-frosting"></div>
+          </div>
+          <div class="cake-plate"></div>
+        </div>
+      </div>
+
+      <!-- Wish button -->
+      <div class="wish-area" id="wishArea">
+        <button class="wish-btn" id="wishBtn" onclick="makeWish()">
+          <span class="wish-icon">✨</span>
+          Make a Wish
+        </button>
+      </div>
+
+      <!-- Post-wish message -->
+      <div class="wish-message" id="wishMessage">
+        <p class="wish-msg-1">May your journey continue to inspire countless students.</p>
+        <p class="wish-msg-2">Happy Birthday, Sir! 🎂</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────────────────────
+       SECTION 4 — ABOUT THE HOD
+       ───────────────────────────────────────────────────────── -->
+  <section id="about-section" class="about-section">
+    <div class="about-inner scroll-reveal">
+      <div class="about-card">
+        <div class="about-card-accent"></div>
+        <div class="about-icon">🎓</div>
+        <h2 class="about-title">More Than an HOD — A Mentor</h2>
+        <p class="about-para">
+          Behind every successful student is someone who believes in their potential.
+          Your guidance, leadership, encouragement, and dedication have made a meaningful
+          difference in the lives of your students.
+        </p>
+        <div class="about-divider">
+          <span>✦</span>
+        </div>
+        <p class="about-para-2">
+          On your special day, we want to express our heartfelt gratitude for everything
+          you do for us. You have shaped not just our academic lives, but our perspectives,
+          our work ethic, and our ambitions.
+        </p>
+        <div class="about-signature">
+          — Your Students, with Respect &amp; Love
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────────────────────
+       SECTION 5 — HOW YOU INSPIRE US
+       ───────────────────────────────────────────────────────── -->
+  <section id="appreciate-section" class="appreciate-section">
+    <div class="section-header scroll-reveal">
+      <p class="section-eyebrow">Inspiration &amp; Guidance</p>
+      <h2 class="section-title">How You Inspire Us, Sir 🌟</h2>
+      <p class="section-sub">The wisdom, leadership, and dedication that guide our journey every day</p>
+    </div>
+
+    <div class="cards-grid">
+      <div class="appr-card scroll-reveal" style="--card-delay:0s">
+        <div class="card-icon-badge">🎓</div>
+        <h3 class="card-title">Leadership</h3>
+        <p class="card-desc">Your leadership gives us direction — a compass that guides us through the most challenging academic journeys.</p>
+        <div class="card-glow"></div>
+      </div>
+
+      <div class="appr-card scroll-reveal" style="--card-delay:0.1s">
+        <div class="card-icon-badge">💡</div>
+        <h3 class="card-title">Knowledge</h3>
+        <p class="card-desc">Your knowledge encourages us to keep learning, to question deeper, and to never stop growing intellectually.</p>
+        <div class="card-glow"></div>
+      </div>
+
+      <div class="appr-card scroll-reveal" style="--card-delay:0.2s">
+        <div class="card-icon-badge">🤝</div>
+        <h3 class="card-title">Guidance</h3>
+        <p class="card-desc">Your guidance helps us move forward with confidence, knowing that a wise mentor stands behind every step we take.</p>
+        <div class="card-glow"></div>
+      </div>
+
+      <div class="appr-card scroll-reveal" style="--card-delay:0.3s">
+        <div class="card-icon-badge">🌟</div>
+        <h3 class="card-title">Inspiration</h3>
+        <p class="card-desc">Your dedication inspires us to become better versions of ourselves, both as students and as future professionals.</p>
+        <div class="card-glow"></div>
+      </div>
+
+      <div class="appr-card scroll-reveal" style="--card-delay:0.4s">
+        <div class="card-icon-badge">❤️</div>
+        <h3 class="card-title">Support</h3>
+        <p class="card-desc">Your support reminds us that every student has the potential to succeed — we just need someone to believe in us.</p>
+        <div class="card-glow"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─────────────────────────────────────────────────────────
+       SECTION 8 — SPECIAL MESSAGE
+       ───────────────────────────────────────────────────────── -->
+  <section id="message-section" class="special-msg-section">
+    <div class="msg-bg-deco">
+      <div class="msg-deco-ring ring-1"></div>
+      <div class="msg-deco-ring ring-2"></div>
+    </div>
+
+    <div class="msg-envelope-icon scroll-reveal">❤️</div>
+
+    <div class="section-header scroll-reveal">
+      <p class="section-eyebrow">From All of Us</p>
+      <h2 class="section-title">A Message From All of Us ❤️</h2>
+    </div>
+
+    <div class="letter-card scroll-reveal">
+      <div class="letter-header">
+        <span class="letter-seal">✦</span>
+      </div>
+      <div class="letter-body" id="letterBody">
+        <!-- Lines revealed one by one via JS scroll / intersection -->
+        <p class="letter-salutation letter-line" data-line="0">Dear Dr. Ratnakiriti Roy Sir,</p>
+        <p class="letter-para letter-line" data-line="1">
+          On your birthday, we would like to take a moment to thank you for your constant
+          guidance, encouragement, and leadership.
+        </p>
+        <p class="letter-para letter-line" data-line="2">
+          Your role goes beyond being our Head of Department. You have been an important
+          part of our academic journey, encouraging us to learn, improve, and believe in ourselves.
+        </p>
+        <p class="letter-para letter-line" data-line="3">
+          We are truly grateful for the opportunities, guidance, and support you have given us.
+        </p>
+        <p class="letter-para letter-line" data-line="4">
+          May the coming year bring you happiness, good memories, continued success, and
+          countless reasons to smile.
+        </p>
+        <p class="letter-wish letter-line" data-line="5">
+          Wishing you a very Happy Birthday, Sir! 🎂🎉
+        </p>
+        <p class="letter-sign letter-line" data-line="6">
+          With Respect and Gratitude,<br/>
+          <em>Your Students</em>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────────────────────
+       SECTION 9 — FINAL SURPRISE BUTTON
+       ───────────────────────────────────────────────────────── -->
+  <section id="surprise-section" class="surprise-section">
+    <div class="surprise-inner scroll-reveal">
+      <p class="surprise-lead">We saved the best for last...</p>
+      <button class="surprise-btn" id="surpriseBtn" onclick="triggerFinalSurprise()">
+        <span class="surprise-gift">🎁</span>
+        <span class="surprise-text">Sir, There Is One More Surprise...</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────────────────────
+       FOOTER
+       ───────────────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="footer-line"></div>
+    <p class="footer-text">
+      Made with Respect &amp; Gratitude by His Students ❤️
+    </p>
+    <p class="footer-year">September 2026</p>
+  </footer>
+
+</main><!-- /mainWebsite -->
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!--  FINAL SURPRISE OVERLAY                                    -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div id="finalSurpriseOverlay" class="final-overlay">
+  <canvas id="confettiCanvas"></canvas>
+  <div class="balloons-container" id="balloonsContainer"></div>
+
+  <div class="final-content" id="finalContent">
+    <div class="final-firework-ring"></div>
+    <p class="final-emoji-top">🎉</p>
+    <h1 class="final-headline">HAPPY BIRTHDAY</h1>
+    <p class="final-emoji-mid">🎉</p>
+    <h2 class="final-name-reveal">Dr. Ratnakiriti Roy Sir</h2>
+    <p class="final-thanks">Thank you for inspiring us.</p>
+    <div class="final-divider-stars">✦ ✦ ✦</div>
+    <p class="final-closing">
+      With Respect &amp; Warmest Wishes ❤️<br/>
+      <em>Your Students</em>
+    </p>
+    <button class="final-close-btn" onclick="closeFinalSurprise()">
+      ← Return to Celebration
+    </button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!--  CONFETTI CANVAS (for cake section)                        -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<canvas id="cakeConfettiCanvas" class="cake-confetti-canvas"></canvas>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!--  AUDIO                                                     -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!--
+  STUDENT INSTRUCTION:
+  Place your royalty-free birthday MP3 file at:
+    hod-birthday/assets/birthday-music.mp3
+
+  Recommended free sources:
+  • https://pixabay.com/music/search/birthday/
+  • https://freemusicarchive.org
+  • https://incompetech.com
+
+  The audio will NOT autoplay — it is controlled by the 🔊 button.
+-->
+<audio id="bgMusic" loop preload="auto">
+  <source src="assets/birthday-music.mp3" type="audio/mpeg" />
+  <source src="assets/birthday-song.wav" type="audio/wav" />
+</audio>
+
+<script src="script.js"></script>
+</body>
+</html>

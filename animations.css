@@ -1,0 +1,79 @@
+/* ═══════════════════════════════════════════════════════════════════
+   animations.css  |  Slow, Silky, Majestic Motion System
+   Dr. Ratnakiriti Roy Sir — Birthday Tribute
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  --silk-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --gentle-ease: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ─── SCROLL REVEALS (Slow & Graceful) ──────────────────────────── */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 1.5s var(--silk-ease), transform 1.5s var(--silk-ease);
+  transition-delay: var(--card-delay, 0s);
+  will-change: opacity, transform;
+}
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-on-enter {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 1.8s var(--silk-ease) 0.3s, transform 1.8s var(--silk-ease) 0.3s;
+  will-change: opacity, transform;
+}
+.reveal-on-enter.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── LETTER LINES (Gentle Stagger) ─────────────────────────────── */
+.letter-line {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 1.4s var(--silk-ease), transform 1.4s var(--silk-ease);
+  will-change: opacity, transform;
+}
+.letter-line.line-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── CARD HOVER MOTIONS ────────────────────────────────────────── */
+.appr-card, .msg-card, .about-card {
+  transition: transform 0.6s var(--silk-ease), border-color 0.5s ease, box-shadow 0.6s ease;
+  will-change: transform, box-shadow;
+}
+
+/* ─── BUTTON HOVER MOTIONS ──────────────────────────────────────── */
+.wish-btn, .surprise-btn, .intro-enter-btn, .music-btn {
+  transition: transform 0.4s var(--silk-ease), box-shadow 0.4s ease, background 0.4s ease;
+  will-change: transform, box-shadow;
+}
+
+/* ─── TOP SCROLL PROGRESS BAR ───────────────────────────────────── */
+#scrollProgressBar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #947020, #e5c158, #fef08a, #e5c158);
+  background-size: 200% auto;
+  z-index: 9998;
+  transition: width 0.25s linear;
+  pointer-events: none;
+  box-shadow: 0 0 10px rgba(229, 193, 88, 0.5);
+}
+
+/* ─── ACCESSIBILITY: REDUCED MOTION ─────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
